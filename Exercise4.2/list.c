@@ -7,8 +7,8 @@ typedef struct node_t {
 }node_t;
 
 //First way, when head is a node_t type
-
-node_t head = NULL;
+/*
+static node_t head = NULL;
 static int count = 0;
 
 int add_item(void *item)
@@ -29,8 +29,8 @@ int add_item(void *item)
 			return -1;
 		}
 }
-
-/*Second way, when head is a pointer to node_t
+*/
+//Second way, when head is a pointer to node_t
 
 static node_t *head = NULL;
 static int count = 0;
@@ -52,7 +52,7 @@ int temp = count;
 	{
 		return -1;
 	}
-}*/
+}
 
 int no_of_items()
 {
@@ -61,5 +61,41 @@ int no_of_items()
 
 int remove_item(void *item)
 {
-	return;
+	get_item(item);
+	count--;
+	return count;
+}
+
+void *get_item(void *item)
+{
+	static node_t *pa = NULL;
+	static node_t *pb = NULL;
+	pa = head->next;
+	pb = head->next;
+	if (pa->content == item)
+	{
+		head->next = pa->next;
+		return pa;
+	}
+	else
+	{
+		pa = pa->next;
+		if (pa->content == item)
+		{
+			pb->next = pa->next;
+			return pa;
+		}
+	}
+		return NULL;
+}
+
+void toString()
+{
+	node_t *current = head;
+
+	while (current!= NULL)
+	{
+		printf("%d\n", current->content);
+		current = current->next;
+	}
 }
