@@ -54,7 +54,7 @@ int temp = count;
 	}
 }*/
 
-int get_nr_of_items
+int no_of_items()
 {
 	return count;
 }
