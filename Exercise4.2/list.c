@@ -61,20 +61,41 @@ int no_of_items()
 
 int remove_item(void *item)
 {
-	get_item(item);
-	count--;
-	return count;
+	static node_t *current = NULL;
+	static node_t *prev = NULL;
+	current = head;
+	prev = head;
+	while (current != NULL)
+	{
+		if (current->content == item)
+		{
+			if (current == head)
+			{
+				head = current->next;
+			}
+			else
+			{
+				prev->next = current->next;
+			}
+			free(current);
+			count--;
+			return 0;
+		}
+		prev = current;
+		current = current->next;
+	}
+	return -1;
 }
 
-void *get_item(void *item)
+/*void *get_item(void *item)
 {
 	static node_t *pa = NULL;
 	static node_t *pb = NULL;
 	pa = head->next;
-	pb = head->next;
+	pb = head;
 	if (pa->content == item)
 	{
-		head->next = pa->next;
+		head=head->next;
 		return pa;
 	}
 	else
@@ -87,7 +108,7 @@ void *get_item(void *item)
 		}
 	}
 		return NULL;
-}
+}*/
 
 void toString()
 {
@@ -95,7 +116,7 @@ void toString()
 
 	while (current!= NULL)
 	{
-		printf("%d\n", current->content);
+		printf("%d\n", *(int*)current->content);
 		current = current->next;
 	}
 }
