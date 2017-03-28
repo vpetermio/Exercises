@@ -1,4 +1,6 @@
 #pragma once
+typedef struct node *list_p;
+void list_create(list_p *list);
 int add_item(void *); // Return 0 if item added else -1
 int remove_item(void *); // Return 0 if item removed else -1
 int no_of_items(); // Return number of items in list
