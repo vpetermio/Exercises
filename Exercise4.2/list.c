@@ -6,36 +6,16 @@ typedef struct node_t {
 	struct node_t *next;
 }node_t;
 
-//First way, when head is a node_t type
-/*
-static node_t head = NULL;
-static int count = 0;
+void list_create(list_p *list){}
 
-int add_item(void *item)
-{
-	int temp = count;
-		node_t *node = (node_t *)malloc(sizeof(node_t));
-		node->content = item;
-		node->next = head.next;
-		head.next = node;
-		count++;
+void list_destroy(list_p *head){}
 
-		if (temp+1 == count)
-		{
-			return 0;
-		}
-		else 
-		{
-			return -1;
-		}
-}
-*/
 //Second way, when head is a pointer to node_t
 
 static node_t *head = NULL;
 static int count = 0;
 
-int add_item(void *item)
+int add_item(list_p *head, void *item)
 {
 int temp = count;
 	node_t *node = (node_t *)malloc(sizeof(node_t));
@@ -54,12 +34,12 @@ int temp = count;
 	}
 }
 
-int no_of_items()
+int no_of_items(list_p *head)
 {
 	return count;
 }
 
-int remove_item(void *item)
+int remove_item(list_p *head, void *item)
 {
 	static node_t *current = NULL;
 	static node_t *prev = NULL;
@@ -87,7 +67,16 @@ int remove_item(void *item)
 	return -1;
 }
 
-/*void *get_item(void *item)
+list_p get_iterator(list_p *list)
+{}
+
+int has_next(list_p *iterator)
+{}
+
+void *next(list_p *iterator)
+{}
+
+void *get_item(list_p *head, uint16_t index)
 {
 	static node_t *pa = NULL;
 	static node_t *pb = NULL;
@@ -108,7 +97,7 @@ int remove_item(void *item)
 		}
 	}
 		return NULL;
-}*/
+}
 
 void toString()
 {
