@@ -18,9 +18,21 @@
     <ClInclude Include="..\Exercise4.2\list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="course.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enrolment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assignment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Exercise4.2\list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="course.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

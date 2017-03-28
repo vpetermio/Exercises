@@ -147,9 +147,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Exercise4.2\list.h" />
+    <ClInclude Include="assignment.h" />
+    <ClInclude Include="course.h" />
+    <ClInclude Include="enrolment.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Exercise4.2\list.c" />
+    <ClCompile Include="course.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
