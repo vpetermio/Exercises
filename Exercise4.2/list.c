@@ -78,25 +78,26 @@ void *next(list_p *iterator)
 
 void *get_item(list_p *head, uint16_t index)
 {
-	static node_t *pa = NULL;
-	static node_t *pb = NULL;
-	pa = head->next;
-	pb = head;
-	if (pa->content == item)
-	{
-		head=head->next;
-		return pa;
+	//start from the first link
+	node_t* current = head;
+
+	//if list is empty
+	if (head == NULL) {
+		return NULL;
 	}
-	else
-	{
-		pa = pa->next;
-		if (pa->content == item)
-		{
-			pb->next = pa->next;
-			return pa;
+
+	//navigate through list
+	while (current != NULL) {
+		if (current->content == item) {
+			return current;
+		}
+		else {
+			//go to next link
+			current = current->next;
 		}
 	}
-		return NULL;
+	//if data found, return the current Link
+	return NULL;
 }
 
 void toString()
